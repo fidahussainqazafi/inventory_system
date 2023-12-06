@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:inventory_system/screens/home_screen.dart';
+
+import 'package:provider/provider.dart';
+
+import 'controller/bottom_nav_controller.dart';
+import 'widget/bottom_nav_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +20,12 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         designSize: const Size(390,844),
     builder: (context, child) {
-    return MaterialApp(
+      return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => BottonNavController()),
+
+          ],
+    child: MaterialApp(
       title: 'Inventory System',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -24,9 +33,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
-    );
-  }
+      home:  BottomNavigationScreen(),
+    )
+      );
+        }
     );
   }
 }
