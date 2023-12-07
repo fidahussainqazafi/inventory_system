@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventory_system/screens/vehicle_inventory_screen.dart';
 
 
 class ManageUsersScreen extends StatefulWidget {
@@ -23,7 +24,11 @@ class _ManageUsersScreenState extends State<ManageUsersScreen> {
       ),
       body: Column(children: [
         Container(
-
+          child: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>vehicleInventoryScreen()));
+              },
+              child: Text('MainScreen')),
         )
       ],),
     );
