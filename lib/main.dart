@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:inventory_system/controller/dropdown_controller.dart';
 
 import 'package:provider/provider.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (context) => BottonNavController()),
+            ChangeNotifierProvider(create: (context)=>DropdownController()),
 
           ],
     child: MaterialApp(
