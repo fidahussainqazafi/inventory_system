@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:inventory_system/api/firebase_api.dart';
 import 'package:inventory_system/controller/dropdown_controller.dart';
+import 'package:inventory_system/controller/form_controller.dart';
 
 import 'package:provider/provider.dart';
 
@@ -33,6 +34,8 @@ class MyApp extends StatelessWidget {
           providers: [
             ChangeNotifierProvider(create: (context) => BottonNavController()),
             ChangeNotifierProvider(create: (context)=>DropdownController()),
+            ChangeNotifierProvider(create: (context)=>FormController()),
+
 
           ],
     child: MaterialApp(

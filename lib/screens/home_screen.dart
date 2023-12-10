@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:inventory_system/screens/manage_users_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../controller/dropdown_controller.dart';
@@ -12,6 +13,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final DropdownController dropdownController = DropdownController();
+
   final TextEditingController controller = TextEditingController();
 
   @override
@@ -79,6 +82,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                     ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pop(); // Close the dialog on "Cancel" button press
+                          },
+                          child: Text('Cancel'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+
+                            // You can call your addVehicleNameAndType function from dropdownController
+                            // Example: dropdownController.addVehicleNameAndType(controller.text, dropdownController.selectedValue);
+                            dropdownController.addVehicleNameAndType(context,
+                                controller.text,
+                              dropdownController.selectedValue
+                            );
+
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ManageUsers())); // Close the dialog on "Add" button press
+                          },
+                          child: Text('Add'),
+                        ),
+                      ],
+                    ),
+
                   ],
                 ),
               );
